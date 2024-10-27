@@ -1,0 +1,33 @@
+version: '3'
+
+tasks:
+  fmt:
+    desc: "Format Terraform files"
+    cmds:
+      - terraform fmt .
+
+  reload:
+    desc: "Reinitialize Terraform"
+    cmds:
+      - terraform init
+
+  plan:
+    desc: "Generate Terraform plan"
+    cmds:
+      - terraform plan
+
+  apply:
+    desc: "Apply Terraform configuration and output to JSON"
+    cmds:
+      - terraform apply
+      - terraform output -json > output.json
+
+  output:
+    desc: "Generate Terraform output to JSON"
+    cmds:
+      - terraform output -json > output.json
+
+  upgrade:
+    desc: "Upgrade Terraform"
+    cmds:
+      - terraform init -upgrade
