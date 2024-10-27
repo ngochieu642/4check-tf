@@ -38,3 +38,5 @@ terraform.rc
 .idea/
 .mise.toml
 .env
+
+**/output.json
