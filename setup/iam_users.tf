@@ -19,6 +19,7 @@ resource "aws_iam_user_policy" "terraform_user_policy" {
           "rds-db:connect",          # Permissions to connect to RDS databases
           "iam:PassRole",            # Required for Lambda execution roles
           "ec2:Describe*",           # Needed for VPC and network management
+          "ec2:CreateVpc",           # Needed for VPC and network management
           "secretsmanager:GetSecretValue",  # If using Secrets Manager for RDS credentials
           "secretsmanager:ListSecrets",
           "logs:*"                   # Permissions for CloudWatch Logs (Lambda logging)
