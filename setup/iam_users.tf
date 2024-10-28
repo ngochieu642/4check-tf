@@ -14,15 +14,35 @@ resource "aws_iam_user_policy" "terraform_user_policy" {
       {
         "Effect": "Allow",
         "Action": [
-          "lambda:*",                # Full Lambda permissions
-          "rds:*",                   # Full RDS permissions
-          "rds-db:connect",          # Permissions to connect to RDS databases
-          "iam:PassRole",            # Required for Lambda execution roles
-          "ec2:Describe*",           # Needed for VPC and network management
-          "ec2:CreateVpc",           # Needed for VPC and network management
-          "secretsmanager:GetSecretValue",  # If using Secrets Manager for RDS credentials
+          # Full Lambda permissions
+          "lambda:*",
+          # Full RDS permissions
+          "rds:*",
+          # Permissions to connect to RDS databases
+          "rds-db:connect",
+          # Required for Lambda execution roles
+          "iam:PassRole",
+          # Needed for VPC and network management
+          "ec2:Describe*",
+          "ec2:CreateVpc",
+          "ec2:DeleteVpc",
+          "ec2:CreateTags",
+          "ec2:ModifyVpcAttribute",
+          "ec2:CreateSecurityGroup",
+          "ec2:DeleteSecurityGroup",
+          "ec2:CreateSubnet",
+          "ec2:CreateRouteTable",
+          "ec2:AssociateRouteTable",
+          "ec2:RevokeSecurityGroupEgress",
+          "ec2:AuthorizeSecurityGroupEgress",
+          "ec2:RevokeSecurityGroupIngress",
+          "ec2:CreateNetworkAclEntry",
+          "ec2:DeleteNetworkAclEntry",
+          # Secrets Manager for RDS credentials
+          "secretsmanager:GetSecretValue",
           "secretsmanager:ListSecrets",
-          "logs:*"                   # Permissions for CloudWatch Logs (Lambda logging)
+          # Permissions for CloudWatch Logs (Lambda logging)
+          "logs:*"
         ],
         "Resource": "*"
       }
