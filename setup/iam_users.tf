@@ -42,6 +42,10 @@ resource "aws_iam_user_policy" "terraform_user_policy" {
           "ec2:DeleteNetworkAclEntry",
           # Bucket
           "s3:*",
+          # IAM
+          "iam:*",
+          # API Gateway
+          "apigateway:*",
           # Secrets Manager for RDS credentials
           "secretsmanager:GetSecretValue",
           "secretsmanager:ListSecrets",
