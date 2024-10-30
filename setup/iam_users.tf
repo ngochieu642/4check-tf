@@ -22,6 +22,8 @@ resource "aws_iam_user_policy" "terraform_user_policy" {
           "rds-db:connect",
           # Required for Lambda execution roles
           "iam:PassRole",
+          # Cloud formation
+          "cloudformation:*",
           # Needed for VPC and network management
           "ec2:Describe*",
           "ec2:CreateVpc",
@@ -38,6 +40,8 @@ resource "aws_iam_user_policy" "terraform_user_policy" {
           "ec2:RevokeSecurityGroupIngress",
           "ec2:CreateNetworkAclEntry",
           "ec2:DeleteNetworkAclEntry",
+          # Bucket
+          "s3:*",
           # Secrets Manager for RDS credentials
           "secretsmanager:GetSecretValue",
           "secretsmanager:ListSecrets",
